@@ -482,3 +482,18 @@ body,
 [data-md-color-scheme="slate"] .md-typeset .final-quote {
   color: #d8b96a;
 }
+
+/* 结语收束句（浅色增强版） */
+.md-typeset .final-quote {
+  text-align: center;
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", "Noto Serif SC", "SimSun", serif;
+  font-size: 1.12em;
+  letter-spacing: 0.16em;
+  line-height: 2;
+  color: var(--sjtu-red-deep);
+  background: linear-gradient(90deg, transparent, rgba(201, 168, 106, 0.16), transparent);
+  border-top: 1px solid rgba(201, 168, 106, 0.55);
+  border-bottom: 1px solid rgba(201, 168, 106, 0.55);
+  padding: 0.75em 1em;
+  margin-top: 1.25em;
+}
