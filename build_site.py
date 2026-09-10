@@ -32,6 +32,19 @@ CHAPTERS = [
     (9, "sec9.tex", "相对同调"),
 ]
 
+# 每章一句话导语（章节题头）
+CHAPTER_LEDES = {
+    1: "用代数方法研究拓扑空间——不变量如何区分「同胚」与「同伦」。",
+    2: "从流形、商空间到多边形表示：闭曲面的构造与完全分类。",
+    3: "定端同伦、形变收缩与可缩空间——「变形」的严格语言。",
+    4: "道路类的代数化：π₁ 的定义、计算与 van Kampen 定理。",
+    5: "覆盖空间：提升定理群、叶数与万有复迭，计算 π₁ 的机器。",
+    6: "范畴、函子与「函子保同构」——各不变量的统一语言。",
+    7: "链复形、奇异同调与 Mayer–Vietoris：可计算的拓扑不变量。",
+    8: "Sⁿ 的同调、映射度与 Hopf 定理：从 Brouwer 不动点到毛球定理。",
+    9: "空间偶、长正合列与切除：相对化与区域不变性。",
+}
+
 # ---------------- macro expansion ----------------
 
 MACROS = {"R": r"\mathbb{R}", "C": r"\mathbb{C}", "Z": r"\mathbb{Z}",
@@ -449,7 +462,10 @@ def epigraph_md(quote: str, source: str) -> str:
 def build_chapter(no: int, texname: str, title: str) -> dict[str, str]:
     parser = SectionParser(no, "")
     body = parser.run((LATEX_DIR / texname).read_text(encoding="utf-8"))
-    head = f"# 第 {no} 章 {title}\n\n"
+    head = f'<div class="chapter-no" aria-hidden="true">{no:02d}</div>\n\n'
+    head += f"# 第 {no} 章 {title}\n\n"
+    if no in CHAPTER_LEDES:
+        head += f'<div class="chapter-lede">{CHAPTER_LEDES[no]}</div>\n\n'
     if no in EPIGRAPHS:
         head += epigraph_md(*EPIGRAPHS[no])
     (DOCS / f"ch{no:02d}.md").write_text(head + body + "\n", encoding="utf-8")
@@ -460,7 +476,10 @@ def build_chapter(no: int, texname: str, title: str) -> dict[str, str]:
 def build_checklist() -> None:
     parser = SectionParser(None, "")
     body = parser.run((LATEX_DIR / "sec10.tex").read_text(encoding="utf-8"))
-    head = "# 考前复习清单\n\n" + epigraph_md("温故而知新，可以为师矣。", "《论语·为政》")
+    head = '<div class="chapter-no" aria-hidden="true">✦</div>\n\n'
+    head += "# 考前复习清单\n\n"
+    head += '<div class="chapter-lede">结论速查 · 证明优先级 · 判断题自测。</div>\n\n'
+    head += epigraph_md("温故而知新，可以为师矣。", "《论语·为政》")
     (DOCS / "checklist.md").write_text(head + body.strip() + "\n", encoding="utf-8")
     print("checklist.md")
 

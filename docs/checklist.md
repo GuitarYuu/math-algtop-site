@@ -1,4 +1,8 @@
+<div class="chapter-no" aria-hidden="true">✦</div>
+
 # 考前复习清单
+
+<div class="chapter-lede">结论速查 · 证明优先级 · 判断题自测。</div>
 
 <div class="epigraph" markdown="1">
 
