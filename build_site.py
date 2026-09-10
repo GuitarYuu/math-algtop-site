@@ -476,6 +476,10 @@ def build_chapter(no: int, texname: str, title: str) -> dict[str, str]:
 def build_checklist() -> None:
     parser = SectionParser(None, "")
     body = parser.run((LATEX_DIR / "sec10.tex").read_text(encoding="utf-8"))
+    body = body.replace(
+        "*万形流转，不变者存；途虽千殊，同归者一。*",
+        '<div class="final-quote">万形流转，不变者存；途虽千殊，同归者一。</div>',
+    )
     head = "# 考前复习清单\n\n" + epigraph_md("温故而知新，可以为师矣。", "《论语·为政》")
     (DOCS / "checklist.md").write_text(head + body.strip() + "\n", encoding="utf-8")
     print("checklist.md")
