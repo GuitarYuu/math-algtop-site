@@ -1,0 +1,287 @@
+/* ===================================================================
+   SJTU 风格主题 —— 代数拓扑重点整理
+   交大红主色 + 白色版面 + 金色点缀；自定义定理类 admonition 配色
+   =================================================================== */
+
+:root {
+  --sjtu-red: #9E1F32;        /* 交大红 */
+  --sjtu-red-deep: #7B1626;
+  --sjtu-red-dark: #5E101C;
+  --sjtu-gold: #C9A86A;
+  --sjtu-paper: #FBF8F4;
+  --sjtu-ink: #2B2B2B;
+}
+
+/* ---------- 全局字体与基调 ---------- */
+body,
+.md-typeset {
+  font-family: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei",
+    "Noto Sans SC", "Source Han Sans SC", sans-serif;
+}
+.md-typeset h1,
+.md-typeset h2 {
+  font-weight: 700;
+  color: var(--sjtu-ink);
+}
+.md-typeset h1 {
+  font-size: 1.7em;
+  padding-left: 0.55em;
+  border-left: 5px solid var(--sjtu-red);
+  line-height: 1.35;
+}
+.md-typeset h2 {
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid rgba(158, 31, 50, 0.25);
+}
+
+/* ---------- Material 主题色：交大红 ---------- */
+:root > * {
+  --md-primary-fg-color: var(--sjtu-red);
+  --md-primary-fg-color--light: #B8495C;
+  --md-primary-fg-color--dark: var(--sjtu-red-deep);
+  --md-accent-fg-color: var(--sjtu-red);
+  --md-default-bg-color: var(--sjtu-paper);
+  --md-typeset-a-color: var(--sjtu-red);
+}
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #1B1A1A;
+  --sjtu-paper: #1B1A1A;
+}
+.md-header {
+  box-shadow: 0 2px 0 var(--sjtu-gold);
+}
+.md-tabs {
+  background: var(--sjtu-red-deep);
+}
+.md-footer {
+  border-top: 3px solid var(--sjtu-red);
+}
+.md-typeset a:focus,
+.md-typeset a:hover {
+  color: var(--sjtu-red-deep);
+}
+
+/* 侧边目录当前项红色 */
+.md-nav__item--active > .md-nav__link {
+  color: var(--sjtu-red);
+  font-weight: 600;
+}
+
+/* ---------- 自定义 admonition：定理家族 ---------- */
+.md-typeset .admonition,
+.md-typeset details {
+  border: none;
+  border-left: 4px solid var(--sjtu-red);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  background: #fff;
+}
+[data-md-color-scheme="slate"] .md-typeset .admonition,
+[data-md-color-scheme="slate"] .md-typeset details {
+  background: #242323;
+}
+.md-typeset .admonition > .admonition-title,
+.md-typeset details > summary {
+  background: rgba(158, 31, 50, 0.08);
+  border-bottom: 1px solid rgba(158, 31, 50, 0.18);
+  font-weight: 600;
+}
+.md-typeset .admonition > .admonition-title::before,
+.md-typeset details > summary::after {
+  display: none;
+}
+
+/* 定义 —— 蓝 */
+.md-typeset .admonition.definition {
+  border-left-color: #2B6CB0;
+}
+.md-typeset .admonition.definition > .admonition-title {
+  background: rgba(43, 108, 176, 0.08);
+  border-bottom-color: rgba(43, 108, 176, 0.2);
+}
+
+/* 定理 / 命题 / 引理 / 推论 —— 交大红 */
+.md-typeset .admonition.theorem,
+.md-typeset .admonition.proposition,
+.md-typeset .admonition.lemma,
+.md-typeset .admonition.corollary {
+  border-left-color: var(--sjtu-red);
+}
+
+/* 例 —— 青绿 */
+.md-typeset .admonition.example {
+  border-left-color: #2F855A;
+}
+.md-typeset .admonition.example > .admonition-title {
+  background: rgba(47, 133, 90, 0.08);
+  border-bottom-color: rgba(47, 133, 90, 0.2);
+}
+
+/* 注 —— 灰 */
+.md-typeset .admonition.remark {
+  border-left-color: #718096;
+}
+.md-typeset .admonition.remark > .admonition-title {
+  background: rgba(113, 128, 150, 0.1);
+  border-bottom-color: rgba(113, 128, 150, 0.2);
+}
+
+/* 证明 —— 可折叠，浅灰 */
+.md-typeset details.proof {
+  border-left-color: #A0AEC0;
+}
+.md-typeset details.proof > summary {
+  background: rgba(160, 174, 192, 0.1);
+  border-bottom-color: rgba(160, 174, 192, 0.2);
+}
+
+/* 考点提示 —— 金红渐变重点框 */
+.md-typeset .admonition.kaodian {
+  border: 1px solid rgba(158, 31, 50, 0.35);
+  border-left: 5px solid var(--sjtu-red);
+  background: linear-gradient(135deg, rgba(201, 168, 106, 0.12), rgba(158, 31, 50, 0.06));
+}
+.md-typeset .admonition.kaodian > .admonition-title {
+  background: linear-gradient(90deg, var(--sjtu-red), var(--sjtu-red-deep));
+  color: #fff;
+  border-bottom: none;
+}
+.md-typeset .admonition.kaodian > .admonition-title::before {
+  display: inline-block;
+  content: "★";
+  margin-right: 0.4em;
+  color: var(--sjtu-gold);
+}
+
+/* 常用方法 —— 金 */
+.md-typeset .admonition.method {
+  border-left-color: var(--sjtu-gold);
+}
+.md-typeset .admonition.method > .admonition-title {
+  background: rgba(201, 168, 106, 0.15);
+  border-bottom-color: rgba(201, 168, 106, 0.35);
+}
+
+/* ---------- 首页 Hero ---------- */
+.sjtu-hero {
+  background: linear-gradient(120deg, var(--sjtu-red-dark) 0%, var(--sjtu-red) 55%, #B8495C 100%);
+  color: #fff;
+  border-radius: 6px;
+  padding: 2.4rem 2rem 2.2rem;
+  margin-bottom: 1.4rem;
+  position: relative;
+  overflow: hidden;
+}
+.sjtu-hero::after {
+  content: "";
+  position: absolute;
+  right: -70px;
+  top: -70px;
+  width: 260px;
+  height: 260px;
+  border: 2px solid rgba(201, 168, 106, 0.4);
+  border-radius: 50%;
+}
+.sjtu-hero::before {
+  content: "";
+  position: absolute;
+  right: 40px;
+  bottom: -90px;
+  width: 190px;
+  height: 190px;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+}
+.sjtu-hero .hero-kicker {
+  font-size: 0.8rem;
+  letter-spacing: 0.35em;
+  color: var(--sjtu-gold);
+  margin-bottom: 0.6rem;
+}
+.sjtu-hero h1 {
+  color: #fff;
+  border: none;
+  padding: 0;
+  font-size: 2.2em;
+  margin: 0 0 0.5rem;
+}
+.sjtu-hero .hero-sub {
+  font-size: 0.95rem;
+  opacity: 0.92;
+  max-width: 46em;
+  line-height: 1.8;
+}
+.sjtu-hero .hero-meta {
+  margin-top: 1rem;
+  font-size: 0.82rem;
+  opacity: 0.85;
+}
+
+/* 首页卡片 */
+.grid.cards > ul > li {
+  border-top: 3px solid var(--sjtu-red);
+}
+.grid.cards > ul > li strong {
+  color: var(--sjtu-red);
+}
+[data-md-color-scheme="slate"] .grid.cards > ul > li strong {
+  color: #E08A98;
+}
+
+/* 讲义转录免责声明 */
+.transcribe-note {
+  font-size: 0.85em;
+  color: #6b6b6b;
+  border-left: 3px solid var(--sjtu-gold);
+  padding: 0.4em 0.8em;
+  background: rgba(201, 168, 106, 0.08);
+  margin: 0.6em 0;
+}
+
+/* 页面底部脚注分隔 */
+.md-typeset hr {
+  border-bottom: 1px dashed rgba(158, 31, 50, 0.3);
+}
+
+/* ---------- 古文题记与对偶句 ---------- */
+.md-typeset .epigraph {
+  border: none;
+  border-left: 3px solid var(--sjtu-gold);
+  background: linear-gradient(90deg, rgba(201, 168, 106, 0.10), transparent 75%);
+  padding: 0.5em 1.1em;
+  margin: 0.2em 0 1.4em;
+  border-radius: 0 4px 4px 0;
+}
+.md-typeset .epigraph p {
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", "Noto Serif SC", "SimSun", serif;
+  font-size: 1.02em;
+  color: #6b5b3e;
+  margin: 0.15em 0;
+}
+[data-md-color-scheme="slate"] .md-typeset .epigraph p {
+  color: #cdb98a;
+}
+
+/* 首页对偶句 */
+.sjtu-couplet {
+  text-align: center;
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", "Noto Serif SC", "SimSun", serif;
+  font-size: 1.35em;
+  letter-spacing: 0.12em;
+  color: var(--sjtu-red-deep);
+  background: linear-gradient(90deg, transparent, rgba(201, 168, 106, 0.14), transparent);
+  border-top: 1px solid rgba(201, 168, 106, 0.45);
+  border-bottom: 1px solid rgba(201, 168, 106, 0.45);
+  padding: 0.9em 1em;
+  margin: 0 0 1.6em;
+  border-radius: 2px;
+}
+.sjtu-couplet .couplet-note {
+  display: block;
+  font-size: 0.55em;
+  letter-spacing: 0.3em;
+  opacity: 0.7;
+  margin-top: 0.45em;
+}
+[data-md-color-scheme="slate"] .sjtu-couplet {
+  color: #d8b96a;
+}
