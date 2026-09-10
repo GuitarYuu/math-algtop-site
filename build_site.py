@@ -462,11 +462,7 @@ def epigraph_md(quote: str, source: str) -> str:
 def build_chapter(no: int, texname: str, title: str) -> dict[str, str]:
     parser = SectionParser(no, "")
     body = parser.run((LATEX_DIR / texname).read_text(encoding="utf-8"))
-    # 大数字即章节标记，标题不再重复"第 N 章"
-    head = f'<div class="chapter-no" aria-hidden="true">{no:02d}</div>\n\n'
-    head += f"# {title}\n\n"
-    if no in CHAPTER_LEDES:
-        head += f'<div class="chapter-lede">{CHAPTER_LEDES[no]}</div>\n\n'
+    head = f"# 第 {no} 章 {title}\n\n"
     if no in EPIGRAPHS:
         head += epigraph_md(*EPIGRAPHS[no])
     (DOCS / f"ch{no:02d}.md").write_text(head + body + "\n", encoding="utf-8")
@@ -477,10 +473,7 @@ def build_chapter(no: int, texname: str, title: str) -> dict[str, str]:
 def build_checklist() -> None:
     parser = SectionParser(None, "")
     body = parser.run((LATEX_DIR / "sec10.tex").read_text(encoding="utf-8"))
-    head = '<div class="chapter-no" aria-hidden="true">✦</div>\n\n'
-    head += "# 考前复习清单\n\n"
-    head += '<div class="chapter-lede">结论速查 · 证明优先级 · 判断题自测。</div>\n\n'
-    head += epigraph_md("温故而知新，可以为师矣。", "《论语·为政》")
+    head = "# 考前复习清单\n\n" + epigraph_md("温故而知新，可以为师矣。", "《论语·为政》")
     (DOCS / "checklist.md").write_text(head + body.strip() + "\n", encoding="utf-8")
     print("checklist.md")
 
