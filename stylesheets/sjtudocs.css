@@ -24,6 +24,8 @@ body,
   color: var(--sjtu-ink);
 }
 .md-typeset h1 {
+  position: relative;
+  z-index: 1;
   font-size: 1.7em;
   padding-left: 0.55em;
   border-left: 5px solid var(--sjtu-red);
@@ -284,4 +286,133 @@ body,
 }
 [data-md-color-scheme="slate"] .sjtu-couplet {
   color: #d8b96a;
+}
+
+/* ================= 第一批视觉升级 ================= */
+
+/* ---------- 1. 章节编号题头 ---------- */
+.md-typeset .chapter-no {
+  position: relative;
+  z-index: 0;
+  font-size: 4.6em;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: rgba(158, 31, 50, 0.10);
+  margin-bottom: -0.55em;
+  pointer-events: none;
+  user-select: none;
+  font-family: Georgia, "Times New Roman", serif;
+}
+[data-md-color-scheme="slate"] .md-typeset .chapter-no {
+  color: rgba(201, 168, 106, 0.12);
+}
+.md-typeset .chapter-lede {
+  font-size: 0.72em;
+  color: #6b6b6b;
+  letter-spacing: 0.02em;
+  margin: -0.4em 0 1.2em;
+  padding-left: 0.1em;
+}
+[data-md-color-scheme="slate"] .md-typeset .chapter-lede {
+  color: #a89f93;
+}
+
+/* ---------- 2. 首页卡片色签与 hover ---------- */
+.md-typeset .chip {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 0.16em 0.75em;
+  border-radius: 999px;
+  color: #fff;
+  vertical-align: middle;
+}
+.md-typeset .chip1 { background: var(--sjtu-red); }
+.md-typeset .chip2 { background: #2B6CB0; }
+.md-typeset .chip3 { background: #2F855A; }
+.md-typeset .chip4 { background: #B7863C; }
+
+.grid.cards > ul > li {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.grid.cards > ul > li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.13);
+}
+.grid.cards > ul > li:nth-child(-n+3) { border-top-color: var(--sjtu-red); }
+.grid.cards > ul > li:nth-child(n+4):nth-child(-n+5) { border-top-color: #2B6CB0; }
+.grid.cards > ul > li:nth-child(n+6):nth-child(-n+9) { border-top-color: #2F855A; }
+.grid.cards > ul > li:nth-child(10) { border-top-color: #B7863C; }
+
+/* ---------- 3. Hero 升级：胶囊 + 大标题 + ★副标题 ---------- */
+.sjtu-hero h1 {
+  font-size: 2.9em;
+  letter-spacing: 0.01em;
+  margin: 0.1em 0 0.35em;
+}
+.sjtu-hero .hero-pills {
+  display: flex;
+  gap: 0.5em;
+  margin-bottom: 0.8em;
+  flex-wrap: wrap;
+}
+.sjtu-hero .hero-pill {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  padding: 0.22em 0.95em;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.10);
+  color: #fff;
+}
+.sjtu-hero .hero-star {
+  display: inline-block;
+  margin-top: 0.55em;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: var(--sjtu-gold);
+  border-top: 1px dashed rgba(201, 168, 106, 0.5);
+  padding-top: 0.5em;
+}
+
+/* ---------- 4. 深色模式微调 ---------- */
+[data-md-color-scheme="slate"] .md-typeset .epigraph {
+  background: linear-gradient(90deg, rgba(201, 168, 106, 0.09), transparent 75%);
+}
+[data-md-color-scheme="slate"] .md-typeset .admonition.theorem,
+[data-md-color-scheme="slate"] .md-typeset .admonition.proposition,
+[data-md-color-scheme="slate"] .md-typeset .admonition.lemma,
+[data-md-color-scheme="slate"] .md-typeset .admonition.corollary {
+  background: #262022;
+}
+[data-md-color-scheme="slate"] .md-typeset .admonition.theorem > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .admonition.proposition > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .admonition.lemma > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .admonition.corollary > .admonition-title {
+  background: rgba(158, 31, 50, 0.18);
+  color: #eecdd4;
+}
+[data-md-color-scheme="slate"] .md-typeset .admonition.definition {
+  background: #1f242e;
+}
+[data-md-color-scheme="slate"] .md-typeset .admonition.definition > .admonition-title {
+  background: rgba(43, 108, 176, 0.16);
+  color: #c9dcf3;
+}
+[data-md-color-scheme="slate"] .md-typeset .admonition.example {
+  background: #1f2a24;
+}
+[data-md-color-scheme="slate"] .md-typeset .admonition.example > .admonition-title {
+  background: rgba(47, 133, 90, 0.16);
+  color: #c7e4d4;
+}
+[data-md-color-scheme="slate"] .md-typeset .admonition.kaodian {
+  background: linear-gradient(135deg, rgba(201, 168, 106, 0.10), rgba(158, 31, 50, 0.12));
+}
+[data-md-color-scheme="slate"] .md-typeset .admonition.kaodian > .admonition-title {
+  background: linear-gradient(90deg, var(--sjtu-red), var(--sjtu-red-deep));
+  color: #fff;
 }
