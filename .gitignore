@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 .deploy-keys/
 _payload.json
+texput.log
