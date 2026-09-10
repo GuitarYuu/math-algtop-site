@@ -462,8 +462,9 @@ def epigraph_md(quote: str, source: str) -> str:
 def build_chapter(no: int, texname: str, title: str) -> dict[str, str]:
     parser = SectionParser(no, "")
     body = parser.run((LATEX_DIR / texname).read_text(encoding="utf-8"))
+    # 大数字即章节标记，标题不再重复"第 N 章"
     head = f'<div class="chapter-no" aria-hidden="true">{no:02d}</div>\n\n'
-    head += f"# 第 {no} 章 {title}\n\n"
+    head += f"# {title}\n\n"
     if no in CHAPTER_LEDES:
         head += f'<div class="chapter-lede">{CHAPTER_LEDES[no]}</div>\n\n'
     if no in EPIGRAPHS:
