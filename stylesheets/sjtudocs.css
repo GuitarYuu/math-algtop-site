@@ -469,3 +469,16 @@ body,
 [data-md-color-scheme="slate"] .md-typeset .preface .preface-note {
   color: #9d968b;
 }
+
+/* 结语收束句 */
+.md-typeset .final-quote {
+  text-align: center;
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", "Noto Serif SC", "SimSun", serif;
+  font-size: 1.18em;
+  letter-spacing: 0.14em;
+  color: var(--sjtu-red-deep);
+  margin-top: 1.1em;
+}
+[data-md-color-scheme="slate"] .md-typeset .final-quote {
+  color: #d8b96a;
+}
