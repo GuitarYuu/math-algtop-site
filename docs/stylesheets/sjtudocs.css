@@ -429,3 +429,33 @@ body,
 [data-md-color-scheme="slate"] .md-typeset .chapter-kicker {
   color: var(--sjtu-gold);
 }
+
+/* 引言区块 */
+.md-typeset .preface {
+  border: 1px solid rgba(158, 31, 50, 0.22);
+  border-left: 4px solid var(--sjtu-red);
+  background: rgba(158, 31, 50, 0.045);
+  border-radius: 0 6px 6px 0;
+  padding: 0.9em 1.3em;
+  margin: 0 0 1.5em;
+}
+.md-typeset .preface .preface-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  color: var(--sjtu-red);
+  margin-bottom: 0.5em;
+}
+.md-typeset .preface p {
+  font-size: 1.02em;
+  line-height: 2;
+  margin: 0;
+}
+[data-md-color-scheme="slate"] .md-typeset .preface {
+  background: rgba(158, 31, 50, 0.10);
+  border-color: rgba(201, 168, 106, 0.35);
+}
+[data-md-color-scheme="slate"] .md-typeset .preface .preface-label {
+  color: var(--sjtu-gold);
+}

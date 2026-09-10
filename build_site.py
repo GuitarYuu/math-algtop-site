@@ -375,7 +375,10 @@ class SectionParser:
             self.out.append(f"\n$$\n\\begin{{{core}}}\n" + body.strip() + f"\n\\end{{{core}}}\n$$\n")
         elif env == "center":
             tab = re.search(r"\\begin\{tabular\}\{[^}]*\}(.*?)\\end\{tabular\}", body, re.S)
-            self.out.append((self.tabular_to_md(tab.group(1)) if tab else body.strip()) + "\n")
+            if tab:
+                self.out.append(self.tabular_to_md(tab.group(1)) + "\n")
+            else:
+                self.out.append(transform_text(body).strip() + "\n")
         else:
             self.out.append(body.strip() + "\n")
 

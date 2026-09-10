@@ -14,10 +14,14 @@ search:
 <span class="hero-pill">讲义 · Yuu</span>
 </span>
 
-<span class="hero-sub">依据王炜飚老师《代数拓扑》课程中 Yuu 的讲义建立：
-涵盖全部主线内容的<strong>重要定义、公式、定理、结论与重要证明</strong>。</span>
+</div>
 
-<span class="hero-star">★ 考点提示标注潜在考察方向</span>
+<div class="preface" markdown="1">
+
+<span class="preface-label">引 言</span>
+
+依据王炜飚老师《代数拓扑》课程中 Yuu 的讲义建立：涵盖全部主线内容的
+**重要定义、公式、定理、结论与重要证明**，以 ★ 考点提示标注潜在考察方向。
 
 </div>
 
