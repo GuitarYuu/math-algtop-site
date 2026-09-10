@@ -459,3 +459,13 @@ body,
 [data-md-color-scheme="slate"] .md-typeset .preface .preface-label {
   color: var(--sjtu-gold);
 }
+
+.md-typeset .preface .preface-note {
+  display: block;
+  margin-top: 0.7em;
+  font-size: 0.85em;
+  color: #8a8a8a;
+}
+[data-md-color-scheme="slate"] .md-typeset .preface .preface-note {
+  color: #9d968b;
+}
